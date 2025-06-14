@@ -1,0 +1,20 @@
+.book-car__bg {
+  width: 100%;
+  height: 500px;
+  background: url('../img/images/book-car-img.jpg') no-repeat;
+  border-radius: 16px;
+}
+.book-car__content {
+  max-width: 425px;
+  padding-top: clamp(50px, 12vw, 100px);
+  margin-left: clamp(15px,5vw,64px);
+}
+.book-car__title {
+  margin-bottom: clamp(20px, 5vw, 40px);
+}
+.book-car__text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}

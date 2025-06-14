@@ -1,0 +1,158 @@
+@import './blocks/./_index.scss';
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  // *base styles
+  --main-font: 'ClashDisplay', sans-serif;
+  --width-container: 1120px;
+  --padding-container: 15px;
+
+  // *main colors
+  --main-color: #999999;
+  --second-color: #ffffff;
+  --page-bg-color: #000000;
+
+  // *header
+  --menu-icon-color: #ffffff;
+
+  // *video-presentation
+  --video-overlay-bg: rgba(0, 0, 0, 0.5);
+  --video-shadow: 0 4px 16px 0 rgba(255, 255, 255, 0.1);
+
+  // *footer
+  --footer-bg-color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--main-font);
+  font-weight: 400;
+  color: var(--main-color);
+  background-color: var(--page-bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1 1 auto;
+}
+.container {
+  max-width: calc(var(--width-container) + var(--padding-container) * 2);
+  margin: 0 auto;
+  padding-inline: var(--padding-container);
+}
+.title-section {
+  font-weight: 500;
+  font-size: clamp(28px, 11vw, 48px);
+  line-height: 112%;
+  color: var(--second-color);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.contact-link {
+  display: inline-flex;
+  column-gap: 16px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 180%;
+  color: var(--second-color);
+  &:hover .contact-link__span {
+    color: var(--main-color);
+  }
+  &:hover .contact-link__arrow {
+    fill: var(--main-color);
+  }
+  .contact-link__arrow {
+    width: 18px;
+    height: 18px;
+    fill: var(--second-color);
+  }
+}
+
+// *media
+
+@media (max-width: 1025px) {
+  // *header
+  .burger-menu {
+    display: flex;
+  }
+  .logo {
+    position: relative;
+    z-index: 10;
+  }
+  .menu {
+    min-height: 100%;
+    position: absolute;
+    top: -620px;
+    background-color: var(--navbar-bg-color);
+    left: 0;
+    transition: top 1s ease;
+  }
+  .menu--open {
+    position: absolute;
+    top: 0;
+  }
+  .menu__list {
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 60px 15px 0;
+  }
+
+  // *about car
+  .about-car__content {
+    justify-content: center;
+  }
+
+  // *video presentation
+  .advantages__container::before {
+    display: none;
+  }
+}
+@media (max-width: 981px) {
+  // *advantages
+  .advantages__container {
+    justify-content: center;
+  }
+}
+@media (max-width: 525px) {
+  // *header
+  .header__content {
+    row-gap: 28px;
+  }
+  .header__title {
+    text-align: center;
+  }
+}
